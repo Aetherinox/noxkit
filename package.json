@@ -1,5 +1,5 @@
 {
-  "name": "noxkit",
+  "name": "@Aetherinox/noxkit",
   "description": "Library with helper functions for Aetherinox",
   "version": "1.0.0",
   "homepage": "https://github.com/Aetherinox/noxkit",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Aetherinox/noxkit.git"
+    "url": "https://github.com/Aetherinox/noxkit.git"
   },
   "bugs": {
     "url": "https://github.com/Aetherinox/noxkit/issues"
