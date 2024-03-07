@@ -90,8 +90,6 @@
     ]
   },
   "directories": {
-    "example": "examples",
-    "lib": "lib",
-    "test": "test"
+    "lib": "lib"
   }
 }
