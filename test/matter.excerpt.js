@@ -1,5 +1,5 @@
 /*!
- * noxkit <https://github.com/Aetherinox/noxkit>
+ * gray-matter <https://github.com/jonschlinkert/gray-matter>
  *
  * Copyright (c) 2014-2017, Jon Schlinkert.
  * Released under the MIT License.
@@ -32,7 +32,7 @@ describe('.excerpt', function() {
 
   it('should use a custom separator', function() {
     var file = Noxkit('---\nabc: xyz\n---\nfoo\nbar\nbaz\n<!-- endexcerpt -->\ncontent', {
-      excerpt_separator: '<!-- endexcerpt -->'
+      excerpt_sep: '<!-- endexcerpt -->'
     });
 
     assert.equal(file.matter, '\nabc: xyz');
@@ -43,7 +43,7 @@ describe('.excerpt', function() {
 
   it('should use a custom separator when no front-matter exists', function() {
     var file = Noxkit('foo\nbar\nbaz\n<!-- endexcerpt -->\ncontent', {
-      excerpt_separator: '<!-- endexcerpt -->'
+      excerpt_sep: '<!-- endexcerpt -->'
     });
 
     assert.equal(file.matter, '');

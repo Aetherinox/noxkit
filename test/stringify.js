@@ -1,5 +1,5 @@
 /*!
- * noxkit <https://github.com/Aetherinox/noxkit>
+ * gray-matter <https://github.com/jonschlinkert/gray-matter>
  *
  * Copyright (c) 2014-2017, Jon Schlinkert.
  * Released under the MIT License.

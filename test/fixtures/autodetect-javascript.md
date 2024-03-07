@@ -1,7 +1,7 @@
 ---javascript
 {
   title: 'autodetect-javascript',
-  user: 'jonschlinkert',
+  user: 'Aetherinox',
   fn: {
     reverse: function(str) {
       return str.split('').reverse().join('');

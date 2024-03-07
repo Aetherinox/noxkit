@@ -8,7 +8,7 @@ const fs            = require( 'fs' )
 const sections      = require( 'section-matter' )
 const defaults      = require( './lib/defaults' )
 const stringify     = require( './lib/stringify' )
-const result        = require( './lib/result' )
+const excerpt       = require( './lib/excerpt' )
 const engines       = require( './lib/engines' )
 const toFile        = require( './lib/to-file' )
 const parse         = require( './lib/parse' )
@@ -35,7 +35,7 @@ const utils         = require( './lib/utils' )
 function Noxkit( input, options )
 {
     if ( input === '' )
-        return { data: { }, content: input, result: '', orig: input }
+        return { data: { }, content: input, excerpt: '', orig: input }
 
     let file        = toFile( input )
     const cached    = Noxkit.cache[ file.content ]
@@ -44,7 +44,7 @@ function Noxkit( input, options )
     {
         if ( cached )
         {
-            file        = Object.assign( { }, cached )
+            file        = Object.assign( {}, cached )
             file.orig   = cached.orig
 
             return file
@@ -85,7 +85,7 @@ function parseMatter( file, options )
     const lenDelim = open.length
     if ( !utils.startsWith( str, open, lenDelim ) )
     {
-        result( file, opts )
+        excerpt( file, opts )
 
         return file
     }
@@ -109,7 +109,7 @@ function parseMatter( file, options )
         use language defined after first delimiter if it exists
     */
 
-    const language      = noxkit.lang( str, opts )
+    const language      = Noxkit.lang( str, opts )
     if ( language.name )
     {
         file.lang       = language.name
@@ -128,9 +128,9 @@ function parseMatter( file, options )
         get raw frontmatter block
     */
 
-    file.Noxkit         = str.slice( 0, closeIndex )
+    file.matter         = str.slice( 0, closeIndex )
 
-    const block         = file.Noxkit.replace( /^\s*#[^\n]+/gm, '' ).trim( )
+    const block         = file.matter.replace( /^\s*#[^\n]+/gm, '' ).trim( )
     if ( block === '' )
     {
         file.isEmpty    = true
@@ -141,10 +141,10 @@ function parseMatter( file, options )
     {
 
         /*
-            create file.data by parsing raw 'file.Noxkit' block
+            create file.data by parsing raw 'file.matter' block
         */
 
-        file.data = parse( file.lang, file.Noxkit, opts )
+        file.data = parse( file.lang, file.matter, opts )
     }
 
     /*
@@ -164,7 +164,7 @@ function parseMatter( file, options )
             file.content = file.content.slice( 1 )
     }
 
-    result( file, opts )
+    excerpt( file, opts )
 
     if ( opts.sections === true || typeof opts.section === 'function' )
         sections( file, opts.section )
@@ -259,7 +259,7 @@ Noxkit.test = function( str, options )
 *
 */
 
-Noxkit.language = function( str, options )
+Noxkit.lang = function( str, options )
 {
     const opts  = defaults( options )
     const open  = opts.delims[ 0 ]

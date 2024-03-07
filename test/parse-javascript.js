@@ -25,7 +25,7 @@ describe('parse javascript:', function() {
 
   it('should parse front matter when options.language is js', function() {
     var file = Noxkit.read('./test/fixtures/lang-javascript-object-fn.md', {
-      language: 'js'
+      lang: 'js'
     });
 
     assert.equal(file.data.title, 'javascript front matter');

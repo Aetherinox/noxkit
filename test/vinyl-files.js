@@ -9,13 +9,13 @@
 
 var assert = require('assert');
 var File = require('vinyl');
-var Noxkit = require('..');
+var noxkit = require('..');
 
 describe('vinyl files', function() {
   it('should take a vinyl file', function() {
     var file = new File({path: 'foo', contents: Buffer.from('---\none: two\n---\nbar')});
 
-    var actual = Noxkit(file);
+    var actual = noxkit(file);
     assert.equal(actual.path, 'foo');
     assert.deepEqual(actual.data, {one: 'two'});
     assert.deepEqual(actual.content, 'bar');
