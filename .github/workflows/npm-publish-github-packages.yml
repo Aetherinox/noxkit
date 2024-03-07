@@ -31,8 +31,7 @@ jobs:
         run: |
           echo "@Aetherinox:registry=https://npm.pkg.github.com" >> ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PAT }}" >> ~/.npmrc
-          npm login
-          npm adduser
+          npm login --registry=https://npm.pkg.github.com --scope=@Aetherinox
       - run: npm publish --registry https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
