@@ -27,6 +27,10 @@ jobs:
           yarn config set npmAuthToken ${{ secrets.GITHUB_TOKEN }}
       - run: npm install
       - run: npm test
+      - name: Setup npm auth
+        run: |
+          echo "@Aetherinox:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PAT }}" >> ~/.npmrc
       - run: npm publish --registry https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
