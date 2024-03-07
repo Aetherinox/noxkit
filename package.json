@@ -1,5 +1,5 @@
 {
-  "name": "@Aetherinox/noxkit",
+  "name": "@aetherinox/noxkit",
   "description": "Library with helper functions for Aetherinox",
   "version": "1.0.0",
   "homepage": "https://github.com/Aetherinox/noxkit",
@@ -8,7 +8,7 @@
     "Aetherinox (https://github.com/Aetherinox)"
   ],
   "publishConfig": {
-    "@Aetherinox:registry": "https://npm.pkg.github.com/"
+    "aetherinox:registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
