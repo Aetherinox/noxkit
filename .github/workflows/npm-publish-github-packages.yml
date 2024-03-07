@@ -24,8 +24,8 @@ jobs:
           scope: '@Aetherinox'
       - run: npm ci
       - run: |
-          echo @Aetherinox:https://npm.pkg.github.com/ > build/.npmrc
-          echo '//npm.pkg.github.com/:_authToken=${NPM_TOKEN}' >> build/.npmrc
+          echo @Aetherinox:https://npm.pkg.github.com/ > .npmrc
+          echo '//npm.pkg.github.com/:_authToken=${NPM_TOKEN}' >> .npmrc
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
