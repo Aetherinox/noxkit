@@ -109,7 +109,7 @@ function parseMatter( file, options )
         use language defined after first delimiter if it exists
     */
 
-    const language      = Noxkit.lang( str, opts )
+    const language      = noxkit.lang( str, opts )
     if ( language.name )
     {
         file.lang       = language.name
