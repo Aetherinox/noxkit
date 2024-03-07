@@ -1,5 +1,5 @@
 /*!
- * gray-matter <https://github.com/jonschlinkert/gray-matter>
+ * noxkit <https://github.com/Aetherinox/noxkit>
  *
  * Copyright (c) 2014-2017, Jon Schlinkert.
  * Released under the MIT License.
@@ -8,11 +8,11 @@
 'use strict';
 
 var assert = require('assert');
-var matter = require('../');
+var Noxkit = require('../');
 
 describe('parse javascript:', function() {
   it('should parse front matter when options.lang is javascript', function() {
-    var file = matter.read('./test/fixtures/lang-javascript-object-fn.md', {
+    var file = Noxkit.read('./test/fixtures/lang-javascript-object-fn.md', {
       lang: 'javascript'
     });
 
@@ -24,7 +24,7 @@ describe('parse javascript:', function() {
   });
 
   it('should parse front matter when options.language is js', function() {
-    var file = matter.read('./test/fixtures/lang-javascript-object-fn.md', {
+    var file = Noxkit.read('./test/fixtures/lang-javascript-object-fn.md', {
       language: 'js'
     });
 
@@ -36,12 +36,12 @@ describe('parse javascript:', function() {
   });
 
   it('should eval functions', function() {
-    var file = matter.read('./test/fixtures/lang-javascript-fn.md', {language: 'js'});
+    var file = Noxkit.read('./test/fixtures/lang-javascript-fn.md', {language: 'js'});
     assert.equal(typeof file.data, 'function');
   });
 
   it('should detect "javascript" after the first delimiter', function() {
-    var file = matter.read('./test/fixtures/autodetect-javascript.md');
+    var file = Noxkit.read('./test/fixtures/autodetect-javascript.md');
     assert.equal(file.data.title, 'autodetect-javascript');
     assert.equal(file.data.title, 'autodetect-javascript');
     assert(file.hasOwnProperty('data'));

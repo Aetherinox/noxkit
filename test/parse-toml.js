@@ -1,5 +1,5 @@
 /*!
- * gray-matter <https://github.com/jonschlinkert/gray-matter>
+ * noxkit <https://github.com/Aetherinox/noxkit>
  *
  * Copyright (c) 2014-2017, Jon Schlinkert.
  * Released under the MIT License.
@@ -8,7 +8,7 @@
 'use strict';
 
 var assert = require('assert');
-var matter = require('..');
+var Noxkit = require('..');
 var extend = require('extend-shallow');
 var toml = require('toml');
 var defaults = {
@@ -18,7 +18,7 @@ var defaults = {
 };
 
 function parse(str, options) {
-  return matter(str, extend({}, defaults, options));
+  return Noxkit(str, extend({}, defaults, options));
 }
 
 describe('parse TOML:', function() {
@@ -42,7 +42,7 @@ describe('parse TOML:', function() {
 
   it('should throw on TOML syntax errors', function() {
     assert.throws(function() {
-      matter('---toml\n[props\nuser = "jonschlinkert"\n---\nContent\n');
+      Noxkit('---toml\n[props\nuser = "jonschlinkert"\n---\nContent\n');
     });
   });
 });

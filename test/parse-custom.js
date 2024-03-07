@@ -1,5 +1,5 @@
 /*!
- * gray-matter <https://github.com/jonschlinkert/gray-matter>
+ * noxkit <https://github.com/Aetherinox/noxkit>
  *
  * Copyright (c) 2014-2017, Jon Schlinkert.
  * Released under the MIT License.
@@ -9,11 +9,11 @@
 
 var assert = require('assert');
 var YAML = require('js-yaml');
-var matter = require('..');
+var Noxkit = require('..');
 
 describe('custom parser:', function() {
   it('should allow a custom parser to be registered:', function() {
-    var actual = matter.read('./test/fixtures/lang-yaml.md', {
+    var actual = Noxkit.read('./test/fixtures/lang-yaml.md', {
       parser: function customParser(str, opts) {
         try {
           return YAML.safeLoad(str, opts);

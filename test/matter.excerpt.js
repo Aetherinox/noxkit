@@ -1,5 +1,5 @@
 /*!
- * gray-matter <https://github.com/jonschlinkert/gray-matter>
+ * noxkit <https://github.com/Aetherinox/noxkit>
  *
  * Copyright (c) 2014-2017, Jon Schlinkert.
  * Released under the MIT License.
@@ -9,11 +9,11 @@
 
 require('mocha');
 var assert = require('assert');
-var matter = require('..');
+var Noxkit = require('..');
 
 describe('.excerpt', function() {
   it('should get an excerpt after front matter', function() {
-    var file = matter('---\nabc: xyz\n---\nfoo\nbar\nbaz\n---\ncontent', {excerpt: true});
+    var file = Noxkit('---\nabc: xyz\n---\nfoo\nbar\nbaz\n---\ncontent', {excerpt: true});
 
     assert.equal(file.matter, '\nabc: xyz');
     assert.equal(file.content, 'foo\nbar\nbaz\n---\ncontent');
@@ -22,7 +22,7 @@ describe('.excerpt', function() {
   });
 
   it('should not get excerpt when disabled', function() {
-    var file = matter('---\nabc: xyz\n---\nfoo\nbar\nbaz\n---\ncontent');
+    var file = Noxkit('---\nabc: xyz\n---\nfoo\nbar\nbaz\n---\ncontent');
 
     assert.equal(file.matter, '\nabc: xyz');
     assert.equal(file.content, 'foo\nbar\nbaz\n---\ncontent');
@@ -31,7 +31,7 @@ describe('.excerpt', function() {
   });
 
   it('should use a custom separator', function() {
-    var file = matter('---\nabc: xyz\n---\nfoo\nbar\nbaz\n<!-- endexcerpt -->\ncontent', {
+    var file = Noxkit('---\nabc: xyz\n---\nfoo\nbar\nbaz\n<!-- endexcerpt -->\ncontent', {
       excerpt_separator: '<!-- endexcerpt -->'
     });
 
@@ -42,7 +42,7 @@ describe('.excerpt', function() {
   });
 
   it('should use a custom separator when no front-matter exists', function() {
-    var file = matter('foo\nbar\nbaz\n<!-- endexcerpt -->\ncontent', {
+    var file = Noxkit('foo\nbar\nbaz\n<!-- endexcerpt -->\ncontent', {
       excerpt_separator: '<!-- endexcerpt -->'
     });
 
@@ -53,7 +53,7 @@ describe('.excerpt', function() {
   });
 
   it('should use a custom function to get excerpt', function() {
-    var file = matter('---\nabc: xyz\n---\nfoo\nbar\nbaz\n---\ncontent', {
+    var file = Noxkit('---\nabc: xyz\n---\nfoo\nbar\nbaz\n---\ncontent', {
       excerpt: function(file) {
         file.excerpt = 'custom';
       }

@@ -1,5 +1,5 @@
 /*!
- * gray-matter <https://github.com/jonschlinkert/gray-matter>
+ * noxkit <https://github.com/Aetherinox/noxkit>
  *
  * Copyright (c) 2014-2017, Jon Schlinkert.
  * Released under the MIT License.
@@ -10,7 +10,7 @@
 var path = require('path');
 var assert = require('assert');
 var extend = require('extend-shallow');
-var matter = require('../');
+var Noxkit = require('../');
 var fixture = path.join.bind(path, __dirname, 'fixtures');
 var coffee = require('coffeescript');
 var defaults = {
@@ -25,7 +25,7 @@ var defaults = {
 };
 
 function parse(name, options) {
-  return matter.read(fixture(name), extend({}, defaults, options));
+  return Noxkit.read(fixture(name), extend({}, defaults, options));
 }
 
 describe('parse coffee', function() {

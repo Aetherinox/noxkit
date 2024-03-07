@@ -1,5 +1,5 @@
 /*!
- * gray-matter <https://github.com/jonschlinkert/gray-matter>
+ * noxkit <https://github.com/Aetherinox/noxkit>
  *
  * Copyright (c) 2014-2017, Jon Schlinkert.
  * Released under the MIT License.
@@ -8,11 +8,11 @@
 'use strict';
 
 var assert = require('assert');
-var matter = require('..');
+var Noxkit = require('..');
 
 describe('parse json:', function() {
   it('should parse JSON front matter.', function() {
-    var actual = matter.read('./test/fixtures/lang-json.md', {
+    var actual = Noxkit.read('./test/fixtures/lang-json.md', {
       lang: 'json'
     });
 
@@ -23,7 +23,7 @@ describe('parse json:', function() {
   });
 
   it('should auto-detect JSON as the language.', function() {
-    var actual = matter.read('./test/fixtures/autodetect-json.md');
+    var actual = Noxkit.read('./test/fixtures/autodetect-json.md');
 
     assert.equal(actual.data.title, 'autodetect-JSON');
     assert(actual.hasOwnProperty('data'));
