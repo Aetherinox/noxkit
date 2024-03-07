@@ -5,7 +5,7 @@
 */
 
 const fs            = require( 'fs' )
-const sections      = require( 'section-Noxkit' )
+const sections      = require( 'section-matter' )
 const defaults      = require( './lib/defaults' )
 const stringify     = require( './lib/stringify' )
 const result        = require( './lib/result' )
