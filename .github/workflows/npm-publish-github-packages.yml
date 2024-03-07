@@ -22,5 +22,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm publish --registry https://npm.pkg.github.com/
+      - run |
+          echo ${{secrets.TEST}}
         env:
           NODE_AUTH_TOKEN: ${{secrets.GH_PAT}}
