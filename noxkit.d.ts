@@ -98,6 +98,7 @@ declare namespace Noxkit
         options?:       NoxOption< string, Out >
         
     ): { name:          string; raw: string }
+    
 }
 
 export = Noxkit
