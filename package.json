@@ -1,7 +1,7 @@
 {
   "name": "@aetherinox/noxkit",
   "description": "Library with helper functions for Aetherinox",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "homepage": "https://github.com/Aetherinox/noxkit",
   "author": "Aetherinox (https://github.com/Aetherinox)",
   "contributors": [
@@ -25,7 +25,7 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=6.0"
+    "node": ">=16.0"
   },
   "scripts": {
     "test": "mocha"
